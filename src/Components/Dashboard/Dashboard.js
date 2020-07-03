@@ -61,6 +61,8 @@ useEffect(() => {
   return (
     <div className={classes.root}>
       <AppBar position="static" color="default"> 
+      {userName && password ?
+        
         <Tabs
           value={value}
           onChange={handleChange}
@@ -71,8 +73,8 @@ useEffect(() => {
           aria-label="scrollable auto tabs example"
         > 
          <Tab label="LOGO" {...a11yProps(4)} disabled/>                  
-          {userName && password &&
-          <>
+          
+                         
           {value==0 ?<Tab label="Home" {...a11yProps(0)} style={{color:"white",backgroundColor:'black'}}/>:
           value==1?<Tab label="Home" {...a11yProps(0)} style={{color:"white",backgroundColor:'black'}}/>:
           <Tab label="Home" {...a11yProps(0)} />}
@@ -80,16 +82,19 @@ useEffect(() => {
           <Tab label="Tasks" {...a11yProps(2)} />}
           {value==3?<Tab label="User" {...a11yProps(3)} style={{color:"white",backgroundColor:'black'}}/>:
           <Tab label="User" {...a11yProps(3)} />}
-        </>}
         
-        <Link to="/">
-            <Tab label="LOGOUT" style={{color:"white",backgroundColor:'black'}}/>               
-        </Link>
+        
+        
+        
+        
+        
         </Tabs>
+        :''}
       </AppBar>
-      {value==0 ? <TabPanel value={value} index={0}>
+      {value==0  && userName && password? <TabPanel value={value} index={0}>
         <HomePage/>
-      </TabPanel>:<TabPanel value={value} index={1}>
+      </TabPanel>:
+      <TabPanel value={value} index={1}>
       <HomePage/>
       </TabPanel>}
       <TabPanel value={value} index={2}>
