@@ -10,7 +10,7 @@ import useStyles from './Dashboard.style'
 import { HomePage } from './HomePage/Home';
 import { TasksPage } from './TasksPage/TasksPage';
 import { UserPage } from './UserPage/UserPage';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -49,11 +49,21 @@ export default function Dashboard() {
   const [value, setValue] = useState(0);
   const [password,setPassword]=useState(sessionStorage.getItem("password"))
   const [userName,setUserName]=useState(sessionStorage.getItem("userName"));
+  const [redirect,setRedirect]=useState(false)
 
 useEffect(() => {
-  
+
+  if(!password && !userName){
+  setRedirect(true)
+}  
 
 }, [])
+
+if(redirect){
+  return(<Redirect to="/"/>)
+}
+
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
