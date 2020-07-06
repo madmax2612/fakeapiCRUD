@@ -64,8 +64,8 @@ const addUser=(user)=>{
    console.log(_.merge(mapData,user))
     const mergeData = _.merge(mapData,user)
     
-    // console.log(JSON.stringify(_.merge(mapData,user)))
-    // console.log(mapData.push(user))
+    console.log(JSON.stringify(_.merge(mapData,user)))
+    console.log(mapData.push(user))
     setChangeData(JSON.stringify(_.merge(mapData,user)))
     // setChangeData(users)
 }

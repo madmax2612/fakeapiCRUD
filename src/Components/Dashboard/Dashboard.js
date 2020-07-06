@@ -82,12 +82,6 @@ useEffect(() => {
           <Tab label="Tasks" {...a11yProps(2)} />}
           {value==3?<Tab label="User" {...a11yProps(3)} style={{color:"white",backgroundColor:'black'}}/>:
           <Tab label="User" {...a11yProps(3)} />}
-        
-        
-        
-        
-        
-        
         </Tabs>
         :''}
       </AppBar>
